@@ -1,8 +1,8 @@
-import 'package:ecommerce_flutter_app/components/list_of_products.dart';
 import 'package:ecommerce_flutter_app/pages/cart_page.dart';
 import 'package:ecommerce_flutter_app/pages/search_detail_page.dart';
 import 'package:ecommerce_flutter_app/widgets/category_list.dart';
-
+import 'package:ecommerce_flutter_app/provider/product_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:ecommerce_flutter_app/widgets/product_grid.dart';
 import 'package:ecommerce_flutter_app/widgets/quantity_spinner.dart';
 import 'package:ecommerce_flutter_app/widgets/search_bar.dart';
@@ -33,12 +33,17 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    displayedProducts = List.from(products);
+    Future.microtask(() {
+      Provider.of<ProductProvider>(context, listen: false).fetchProducts();
+    });
   }
 
   void filterProducts() {
+    final allProducts =
+        Provider.of<ProductProvider>(context, listen: false).products;
+
     setState(() {
-      displayedProducts = products.where((product) {
+      displayedProducts = allProducts.where((product) {
         final matchesCategory = selectedCategory == 'All' ||
             product['category'] == selectedCategory;
         final matchesSearch =
@@ -50,6 +55,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // final productProvider = Provider.of<ProductProvider>(context);
+    // final allProducts = productProvider.products;
+
+    // // Handle loading state
+    // if (allProducts.isEmpty) {
+    //   return const Center(child: CircularProgressIndicator());
+    // }
+
+    // // Run filter if not yet set
+    // if (displayedProducts.isEmpty) {
+    //   displayedProducts = allProducts;
+    // }
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(

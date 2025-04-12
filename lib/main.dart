@@ -1,3 +1,4 @@
+import 'package:ecommerce_flutter_app/provider/product_provider.dart';
 import 'package:ecommerce_flutter_app/provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +8,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => ProductProvider()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
       ],
       child: EcommerceApp(),

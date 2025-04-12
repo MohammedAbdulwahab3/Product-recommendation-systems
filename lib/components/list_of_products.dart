@@ -1,22 +1,22 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// import 'dart:convert';
+// import 'package:http/http.dart' as http;
 
-void getList() async {
-  final url = Uri.parse("https://f826-35-204-36-166.ngrok-free.app/prdict");
+// void getList() async {
+//   final url = Uri.parse("https://f826-35-204-36-166.ngrok-free.app/prdict");
 
-  try {
-    final response = await http.post(
-      url,
-      headers: {"Content-Type": "application/json"},
-      body: jsonEncode({"name": "ebrahim"}),
-    );
+//   try {
+//     final response = await http.post(
+//       url,
+//       headers: {"Content-Type": "application/json"},
+//       body: jsonEncode({"name": "ebrahim"}),
+//     );
 
-    print("Status: ${response.statusCode}");
-    print("Body: ${response.body}");
-  } catch (e) {
-    print("Error: $e");
-  }
-}
+//     print("Status: ${response.statusCode}");
+//     print("Body: ${response.body}");
+//   } catch (e) {
+//     print("Error: $e");
+//   }
+// }
 
 final List<Map<String, dynamic>> products = [
   {
@@ -138,19 +138,6 @@ final List<Map<String, dynamic>> products = [
         "Women's Denim Cotton Button Closed Long Sleeve Solid Color Jacket With Pockets",
     "price": 32.9,
   },
-
-  //computer
-  // {
-  //   "name": "Women's Denim Cotton jacket",
-  //   "category": "Jackets",
-  //   "image": "assets/images/phone-1.jpg",
-  //   "description":
-  //       "Women's Denim Cotton Button Closed Long Sleeve Solid Color Jacket With Pockets",
-  //   "price": 32.9,
-  // },
-  //Trouser
-  //watches
-  //jwelleries
 ];
 
 // Latest products

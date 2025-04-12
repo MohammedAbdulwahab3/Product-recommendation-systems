@@ -1,6 +1,5 @@
 import 'package:ecommerce_flutter_app/provider/provider.dart';
 import 'package:ecommerce_flutter_app/widgets/associated_products.dart';
-import 'package:ecommerce_flutter_app/widgets/related_products.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -60,15 +59,6 @@ class DetailPage extends StatelessWidget {
                   style: GoogleFonts.montserrat(),
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Related Products',
-                style: GoogleFonts.montserrat(
-                    fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 100, child: RelatedProducts()),
               SizedBox(
                 height: 30,
               ),
