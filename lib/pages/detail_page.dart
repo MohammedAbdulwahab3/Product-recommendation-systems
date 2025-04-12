@@ -67,7 +67,10 @@ class DetailPage extends StatelessWidget {
                 style: GoogleFonts.montserrat(
                     fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 100, child: AssociatedProducts()),
+              AssociatedProducts(
+                category: product['category'],
+                productId: product['id'],
+              )
             ],
           ),
         ),

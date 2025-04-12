@@ -17,14 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> categories = [
-    "All",
-    "Jackets",
-    "Computers",
-    "Shoes",
-    "Cell phones",
-    "Jwelleries"
-  ];
   String selectedCategory = 'All';
   String searchText = '';
 
@@ -55,6 +47,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final categories = Provider.of<ProductProvider>(context).categories;
+
     // final productProvider = Provider.of<ProductProvider>(context);
     // final allProducts = productProvider.products;
 

@@ -7,6 +7,12 @@ class ProductProvider with ChangeNotifier {
 
   List<Map<String, dynamic>> get products => _products;
 
+  List<String> get categories {
+    final Set<String> uniqueCategories =
+        _products.map((product) => product['category'] as String).toSet();
+    return ['All', ...uniqueCategories];
+  }
+
   Future<void> fetchProducts() async {
     final url = "https://f826-35-204-36-166.ngrok-free.app/prdict";
     try {
